@@ -3,7 +3,7 @@ on: push
 jobs:
   # Lint the code
   Lint:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       # Checkout the repository
       - name: Checkout code
@@ -39,7 +39,7 @@ jobs:
         run: npm run test
   # Deploy the code
   Deploy:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       # Checkout the repository
       - name: Checkout code
