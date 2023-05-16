@@ -4,6 +4,5 @@ jobs:
   IssueDetails:
     runs-on: ubuntu-latest
     steps:
-        - 
-          name: Get Issue Details
-          run: echo "Issue Details: ${{ toJson(github.event.issue) }}"
+      - name: Get Issue Details
+        run: echo ${{ toJson(github.event.issue) }}
