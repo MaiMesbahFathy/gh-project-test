@@ -1,0 +1,60 @@
+name: deploy your app
+on: push
+jobs:
+  # Lint the code
+  Lint:
+    run-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # Setup Node.js environment
+      - name: Lint
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+      # Lint the code
+      - name: Lint
+        run: npm run lint
+  # Test the code
+  Test:
+    run-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+      # Setup Node.js environment
+      - name: Test
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+      # Test the code
+      - name: Test
+        run: npm run test
+  # Deploy the code
+  Deploy:
+    run-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+      # Setup Node.js environment
+      - name: Deploy
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+      # build the code
+      - name: Build
+        run: npm run build
+      # Deploy the code
+      - name: Deploy
+        run: echo 'Deploying the code'
